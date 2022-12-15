@@ -8,10 +8,10 @@ set -eo pipefail
 # set -x
 
 # parse and derive params
-rm -rf /opt/render/app/cache
-mkdir -p /opt/render/app/cache
-BUILD_DIR=/opt/render/app
-CACHE_DIR=/opt/render/app/cache
+rm -rf /opt/render/project/src/cache
+mkdir -p /opt/render/project/src/cache
+BUILD_DIR=/opt/render/project/src
+CACHE_DIR=/opt/render/project/src/cache
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
 
 function error() {
