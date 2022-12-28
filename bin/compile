@@ -10,7 +10,8 @@ set -eo pipefail
 # parse and derive params
 rm -rf $HOME/cache
 mkdir -p $HOME/cache
-BUILD_DIR=$HOME
+mkdir -p /opt/render/project/src/.venv
+BUILD_DIR=/opt/render/project/src/.venv
 CACHE_DIR=$HOME/cache
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
 
@@ -99,7 +100,7 @@ mkdir -p $BUILD_DIR/.apt
 
 for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
   topic "Installing $(basename $DEB)"
-  dpkg -x $DEB $BUILD_DIR/.apt/
+  dpkg -x $DEB $BUILD_DIR/
 done
 
 topic "Writing profile script"
